@@ -2,25 +2,18 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function Signup() {
-
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         phoneNo: "",
         email: "",
         password: "",
     });
 
-    let name, value;
-    const postUserData = (event) => {
-        name = event.target.name;
-        value = event.target.value;
+    const postUserData = ({target}) => {
+        const {name, value} = target;
 
         setUserData({ ...userData, [name]: value });
     };
-
-    const navigate = useNavigate();
-    function handleClick(){
-        navigate("/user");
-    }
 
     // connect with firebase
     const submitData = async (event) => {
@@ -48,7 +41,7 @@ function Signup() {
                     email: "",
                     password: "",
                 });
-                alert("Data Stored");
+                navigate("/user");
             } else {
                 alert("Please fill the data");
             }
@@ -59,32 +52,36 @@ function Signup() {
     };
 
     return (
-        <div>
-            <form method='POST'>
+        <div className='form'>
+            <h1>Signup page</h1>
+            <div>
                 <input
                     name='phoneNo'
                     type="number"
                     placeholder='Phone No.'
                     value={userData.phoneNo}
-                    onChange={postUserData} />
+                    onChange={(e) => postUserData(e)} />
                 <input
                     name='email'
                     type="email"
                     placeholder='Email'
                     value={userData.email}
-                    onChange={postUserData} />
+                    onChange={(e) => postUserData(e)} />
                 <input
                     name='password'
                     type="password"
                     placeholder='Password'
                     value={userData.password}
-                    onChange={postUserData} />
+                    onChange={(e) => postUserData(e)} />
                 <button 
-                    onClick={() => {
-                        submitData()
-                        handleClick()
-                    }}>Signup</button>
-            </form>
+                    className='btn-sign'
+                    
+                    onClick={(e) => {
+                        submitData(e)
+                        
+                    }}
+                    >Signup</button>
+            </div>
         </div>
     )
 }

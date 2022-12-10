@@ -6,12 +6,6 @@ import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
     <BrowserRouter>
-        {/* <Routes>
-            <Route path="/user">
-                <User />
-            </Route>
-        </Routes> */}
-
         <App />
     </BrowserRouter>,
     document.getElementById("root")

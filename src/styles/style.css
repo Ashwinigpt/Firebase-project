@@ -1,0 +1,28 @@
+h1{
+    text-align: center;
+}
+.form {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 5rem;
+}
+
+.form input {
+    width: 100%;
+    padding: 1rem 0;
+    margin-top: 1rem;
+    border-radius: 8px;
+    padding-left: 0.25rem;
+}
+
+.btn-sign {
+    padding: 1rem;
+    border-radius: 5px;
+    color: white;
+    background-color: green;
+    margin-top: 2rem;
+    margin-left: 18rem;
+}
+.user-form{
+    text-align: center;
+}
